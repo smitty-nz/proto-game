@@ -4,8 +4,8 @@
   "description": "js-based, event-driven, minimal game loop for the browser",
   "main": "index.js",
   "scripts": {
-    "autobuild": "watchify ./index.js -o ./test/out.js --verbose",
-    "build": "browserify ./index.js -o ./test/out.js"
+    "autobuild": "watchify ./test/test-index.js -o ./test/out/out.js --verbose",
+    "build": "browserify ./test/test-index.js -o ./test/out/out.js"
   },
   "devDependencies": {
     "browserify": "^16.2.3",
