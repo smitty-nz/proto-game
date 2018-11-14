@@ -44,16 +44,16 @@ class Pointer extends Events.EventEmitter {
     __setButtonDown( event ){
         this.buttons[ event.button ] = true;
         this.emit( 'press', this.buttonsAlias[ event.button ], this.position );
-        if( event.button == this.BUTTON_LEFT ) this.emit( 'pressLeft', this.position );     // todo: streamline
-        if( event.button == this.BUTTON_RIGHT ) this.emit( 'pressRight', this.position );
-        if( event.button == this.BUTTON_MIDDLE ) this.emit( 'pressMiddle', this.position );
+        if( event.button === this.BUTTON_LEFT ) this.emit( 'pressLeft', this.position );     // todo: streamline
+        if( event.button === this.BUTTON_RIGHT ) this.emit( 'pressRight', this.position );
+        if( event.button === this.BUTTON_MIDDLE ) this.emit( 'pressMiddle', this.position );
     }
     __setButtonUp( event ){
         this.buttons[ event.button ] = false;
         this.emit( 'release', this.buttonsAlias[ event.button ], this.position );
-        if( event.button == this.BUTTON_LEFT ) this.emit( 'releaseLeft', this.position );       // todo: streamline
-        if( event.button == this.BUTTON_RIGHT ) this.emit( 'releaseRight', this.position );
-        if( event.button == this.BUTTON_MIDDLE ) this.emit( 'releaseMiddle', this.position );
+        if( event.button === this.BUTTON_LEFT ) this.emit( 'releaseLeft', this.position );       // todo: streamline
+        if( event.button === this.BUTTON_RIGHT ) this.emit( 'releaseRight', this.position );
+        if( event.button === this.BUTTON_MIDDLE ) this.emit( 'releaseMiddle', this.position );
     }
     __setWheel( event ){
         let delta = event.deltaY;
