@@ -53,8 +53,16 @@ Game.on( 'update', ()=>{
 ```Game.pointer``` abstracts mouse events, also maintains mouse state.
 
 ```js
+Game.pointer.on( 'press', ( button, position ) =>{
+  console.log( button, 'pressed at position: ', position.x, position.y );
+} )
+
 Game.pointer.on( 'pressLeft', position =>{
-  console.log( 'click @', position.x, position.y );
+  console.log( 'left click @', position.x, position.y );
+} )
+
+Game.pointer.on( 'wheel', ( direction, delta ) =>{
+  if( direction == 'up' ) console.log( 'scrolled up' );
 } )
 
 Game.on( 'update', ()=>{
