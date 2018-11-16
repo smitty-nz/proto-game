@@ -31,7 +31,6 @@ class Loader extends Events.EventEmitter {
         handler( 
             filename,
             ( result )=>{ 
-                console.log( result );
                 this.assets[ assetname ] = result;
                 this.emit( 'loadeach', { data : result, name : assetname, filename : filename } )
                 this.__completeEach();
