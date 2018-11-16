@@ -70,3 +70,25 @@ Game.on( 'update', ()=>{
 } )
 
 ```
+
+## Loader:
+
+```Game.loader``` handles loading and storing assets
+
+```js
+Game.on( 'init', ()=>{
+  Game.loader.load( 
+    { src : 'image.png', id : 'assetName' },
+  )
+} )
+
+Game.on( 'load', ()=>{
+  let img = Game.loader.get( 'assetName' );
+
+  Game.on( 'render', ()=>{
+    context.clearRect( 0, 0, canvas.width, canvas.height );
+    context.drawImage( img, 0, 0 );
+  } )
+} )
+
+```
