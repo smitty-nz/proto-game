@@ -1,7 +1,9 @@
 {
   "name": "proto-game",
-  "version": "1.0.0",
-  "description": "js-based, event-driven, minimal game loop for the browser",
+  "author" : "smitty-nz",
+  "version": "1.1.1",
+  "description": "Tiny, event-driven game loop for the browser. Requires packaging via browserify or similar to use.",
+  "keywords": [ "game", "browser", "minimal", "light", "es6" ],
   "main": "index.js",
   "scripts": {
     "autobuild": "watchify ./test/test-index.js -o ./test/out/out.js --verbose",

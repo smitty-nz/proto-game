@@ -1,5 +1,5 @@
 # proto-game
-js-based, event-driven, minimal game loop for the browser
+Tiny, event-driven game loop for the browser. Requires packaging via browserify or similar to use.
 
 ## Initialization:
 The ```Game``` object is a singleton so the state is constant across multiple references.
