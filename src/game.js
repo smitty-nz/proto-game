@@ -7,22 +7,22 @@ class Game extends Events.EventEmitter {
         this.inputElement = null;
     }
     init( { outputElement, inputElement = window } ){
-        const game = this;
-        game.inputElement = inputElement;
-        game.outputElement = outputElement;
+        this.inputElement = inputElement;
+        this.outputElement = outputElement;
         const map = ( inEvent, outEvent = inEvent, allowDefault = true )=>{
             if( allowDefault ){
                 inputElement.addEventListener( inEvent, event => {
-                    game.emit( outEvent, event );
+                    this.emit( outEvent, event );
                 } )
             } else {
                 inputElement.addEventListener( inEvent, event => {
-                    game.emit( outEvent, event );
+                    this.emit( outEvent, event );
                     event.preventDefault();
                 } )
             }
         }
 
+        window.onload = ()=>{ this.emit( 'init' ); }
         map( 'contextmenu', 'contextmenu', false );
         map( 'wheel', 'mousewheel', false );
         map( 'mousedown', 'mousedown', false );
@@ -35,15 +35,14 @@ class Game extends Events.EventEmitter {
         const loop = ()=>{
             requestAnimationFrame( loop );
             let current = Date.now();
-            let last = game.__lastTick;
+            let last = this.__lastTick;
             let deltaMilli = (current - last);
             let deltaSeconds = deltaMilli / 1000; 
-            game.emit( 'update', deltaSeconds );
-            game.emit( 'render', deltaSeconds );
-            game.__lastTick = current;
+            this.emit( 'update', deltaSeconds );
+            this.emit( 'render', deltaSeconds );
+            this.__lastTick = current;
         }
         loop();
-        return game;
     }
 }
 
