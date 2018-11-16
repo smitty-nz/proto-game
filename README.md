@@ -68,12 +68,11 @@ Game.pointer.on( 'wheel', ( direction, delta ) =>{
 Game.on( 'update', ()=>{
   if( Game.pointer.left ) console.log( 'mouse left is held!' );
 } )
-
 ```
 
 ## Loader:
 
-```Game.loader``` handles loading and storing assets
+```Game.loader``` handles loading and storing assets. The library defines a default handler for image types.
 
 ```js
 Game.on( 'init', ()=>{
@@ -90,5 +89,16 @@ Game.on( 'load', ()=>{
     context.drawImage( img, 0, 0 );
   } )
 } )
+```
 
+To load other types, or to override the default image loading, you can call ```Game.loader.handle()```
+Here is the default image loader as an example:
+
+```js
+Game.loader.handle( [ 'png', 'jpeg', 'jpg', 'bmp', 'gif' ], ( filename, finish, error ) =>{
+    let image = new Image();
+    image.onload = ()=>{ finish( image ); }
+    image.onerror = ()=>{ error( filename ); }
+    image.src = filename;
+} )
 ```
