@@ -1,9 +1,14 @@
 {
   "name": "proto-game",
   "author" : "smitty-nz",
-  "version": "1.1.1",
+  "version": "1.1.2",
+  "license": "MIT",
+  "repository": {
+    "type" : "git",
+    "url" : "https://github.com/smitty-nz/proto-game"
+  },
   "description": "Tiny, event-driven game loop for the browser. Requires packaging via browserify or similar to use.",
-  "keywords": [ "game", "browser", "minimal", "light", "es6" ],
+  "keywords": [ "game", "browser", "minimal", "lightweight", "es6" ],
   "main": "index.js",
   "scripts": {
     "autobuild": "watchify ./test/test-index.js -o ./test/out/out.js --verbose",
